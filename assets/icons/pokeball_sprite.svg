@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 16 16">
+  <title>Pokéball – einfarbiger 2D-Sprite</title>
+  <path fill="#000" fill-rule="evenodd" d="
+    M8 0
+    A8 8 0 0 0 8 16
+    A8 8 0 0 0 8 0
+    Z
+    M8 1.5
+    A6.5 6.5 0 1 1 8 14.5
+    A6.5 6.5 0 1 1 8 1.5
+    Z"/>
+  <path fill="#000" d="M0 7h16v2H0z"/>
+  <path fill="#000" fill-rule="evenodd" d="
+    M8 4.5
+    A3.5 3.5 0 1 0 8 11.5
+    A3.5 3.5 0 1 0 8 4.5
+    Z
+    M8 6
+    A2 2 0 1 1 8 10
+    A2 2 0 1 1 8 6
+    Z"/>
+</svg>
