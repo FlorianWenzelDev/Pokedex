@@ -1,14 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/icons/pokeball_sprite.svg" type="image/x-icon">
     <title>Pokedex</title>
+    <link rel="stylesheet" href="./styles/standard.css">
+    <link rel="stylesheet" href="./styles/fonts.css">
     <link rel="stylesheet" href="style.css">
     <script src="./script.js"></script>
     <script src="./scripts/templates.js"></script>
 </head>
+
 <body onload="init()">
-    
+    <header class="site-header">
+        <div class="header-styling-wrapper">
+            <img class="site-logo" src="./assets/icons/pokeball_sprite.svg" alt="">
+            <h1>Pokedex</h1>
+        </div>
+        <div class="header-styling-wrapper">
+            <input id="search-input " data-id="search-input" type="text" placeholder="Search here...">
+            <button data-id="search-button">Search</button>
+        </div>
+    </header>
+    <main data-id="content">
+        <ul id="listOfPokemon" class="list-of-pokemon">
+        </ul>
+        <button data-id="load-more-button" onclick="fetchPokemons()">Load more</button>
+    </main>
+    <footer class="site-footer">
+        <a href="#imprint">Imprint</a>
+        <p>c Florian Wenzel</p>
+    </footer>
+    <dialog data-id="dialog">
+        <button data-id="close-dialog-button"></button>
+        <img data-id="dialog-image" src="" alt="">
+        <nav>
+            <button data-id="prev-button"></button>
+            <button data-id="next-button"></button>
+        </nav>
+    </dialog>
 </body>
+
 </html>
