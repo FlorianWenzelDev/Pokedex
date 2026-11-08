@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul{
+    list-style-type: none;
+    padding-left: 0;
+}
+
+[hidden]{
+    display: none !important; 
+}
+
+button:hover{
+    cursor: pointer;
+}

@@ -1,0 +1,71 @@
+/* alumni-sans-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Alumni Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/alumni-sans-v20-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* alumni-sans-500 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Alumni Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../assets/fonts/alumni-sans-v20-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* alumni-sans-600 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Alumni Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../assets/fonts/alumni-sans-v20-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* alumni-sans-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Alumni Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../assets/fonts/alumni-sans-v20-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* alumni-sans-800 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Alumni Sans';
+  font-style: normal;
+  font-weight: 800;
+  src: url('../assets/fonts/alumni-sans-v20-latin-800.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+*{
+    font-family: "Alumni Sans";
+}
+
+.site-header h1{
+    font-size: 2.25rem;
+}
+
+.site-header{
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
+h2{ 
+    font-size: 1.75rem;
+}
+
+.small-pokemon-card p{
+    font-size: 1.25rem;
+}
+
+.pokemon-type{
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
+.site-footer{
+    font-size: 1.125rem;
+    font-weight: 500;
+}

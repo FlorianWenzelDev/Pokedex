@@ -1,0 +1,164 @@
+.bug{
+    background-color: rgba(137, 150, 13, 1);
+}
+
+.dark{
+    background-color: rgba(79, 56, 47, 1);
+}
+
+.dragon{
+    background-color: rgba(118, 94, 222, 1);
+}
+
+.electric{
+    background-color: rgba(249, 198, 59, 1);
+}
+
+.fairy{
+    background-color: rgba(242, 177, 244, 1);
+}
+
+.fighting{
+    background-color: rgba(127, 51, 26, 1);
+}
+
+.fire{
+    background-color: rgba(237, 67, 16, 1);
+}
+
+.flying{
+    background-color: rgba(150, 170, 243, 1);
+}
+
+.ghost{
+    background-color: rgba(114, 93, 219, 1);
+}
+
+.grass{
+    background-color: rgba(148, 208, 101, 1);
+}
+
+.ground{
+    background-color: rgba(206, 175, 84, 1);
+}
+
+.ice{
+    background-color: rgba(169, 233, 253, 1);
+}
+
+.normal {
+    background-color: rgba(197, 192, 182, 1);
+}
+
+.poison {
+    background-color: rgba(146, 66, 143, 1);
+}
+
+.psychic {
+    background-color: rgba(146, 66, 143, 1);
+}
+
+.rock {
+    background-color: rgba(184, 163, 87, 1);
+}
+
+.steel {
+    background-color: rgba(198, 197, 206, 1);
+}
+
+.water{
+    background-color: rgba(61, 154, 244, 1);
+}
+
+button{
+    transform: scale(1);
+}
+
+button:hover{
+    transform: scale(1.1);
+}
+
+.site-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 16px;
+    height: 80px;
+    background-color: rgba(244, 25, 27, 0.8);
+}
+
+.header-styling-wrapper{
+    display: flex;
+    gap: 4px;
+}
+
+.site-logo{
+    width: 32px;
+}
+
+main{
+    padding: 24px;
+    background-color: #332f2f;
+}
+
+.list-of-pokemon{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.small-pokemon-card{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    border-radius: 16px;
+    border: 2px solid white;
+}
+
+.small-pokemon-card p {
+    padding: 8px 8px 0px 0px;
+    text-align: right;
+
+}
+
+.small-card-styling-wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
+.small-card-styling-wrapper ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+}
+
+.pokemon-type{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    width: 56px;
+    height: 28px;
+    border-radius: 14px;
+}
+
+.small-card-styling-wrapper img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 96px;
+    object-fit: contain;
+}
+
+.site-footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    height: 80px;
+    background-color: rgba(244, 25, 27, 0.8);
+}
