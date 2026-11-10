@@ -20,3 +20,4 @@ function getSmallPokemonCard(pokemon, pokemonName ,pokemonTypes){
                 </button>
             </li>`
 }
+

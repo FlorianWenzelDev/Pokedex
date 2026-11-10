@@ -5,6 +5,7 @@ let fetchedPokemons = [];
 
 function init() {
     fetchPokemons();
+    enableSearchButton()
 }
 
 async function fetchPokemons() {
@@ -15,31 +16,47 @@ async function fetchPokemons() {
         pokemonNames.push(pokemonsAsJson.results[pokemonIndex].name);
         loadedPokemonCounter++;
     }
+    await getNewPokemonsData(pokemonNames);    
     renderFetchedPokemons(pokemonNames);
 }
 
 async function getNewPokemonsData(pokemonNamesArray) {
     let ArrayOfPokemonData = []
     for (let index = 0; index < pokemonNamesArray.length; index++) {
-        ArrayOfPokemonData.push(await fetchPokemon(pokemonNamesArray[index]));
+        ArrayOfPokemonData.push(await fetchPokemonDataByName(pokemonNamesArray[index]));
     }
     return ArrayOfPokemonData;
 }
 
-async function renderFetchedPokemons(pokemonNames) {
+async function renderFetchedPokemons(pokemonNames, fullreload=false) {
     let pokemonListRef = document.getElementById("listOfPokemon");
-    let pokemonData = await getNewPokemonsData(pokemonNames);
+    console.log(pokemonListRef.innerHTML);
+    (fullreload) ? pokemonListRef.innerHTML = "" : "pokemonListRef.innerHTML = pokemonListRef.innerHTML";
+    let listenLaenge = document.querySelectorAll('#listOfPokemon > li').length;
+    console.log(pokemonNames);
+    console.log(listenLaenge);
+    
     let renderCards = "";
-    for (let index = 0; index < pokemonData.length; index++) {
-        renderCards += renderSmallPokemonCard(pokemonData[index]);
+    for (let index = 0; index < pokemonNames.length; index++) {
+        renderCards += renderSmallPokemonCard(fetchedPokemons[index + listenLaenge]);
     }
     pokemonListRef.innerHTML += renderCards; 
 }
 
-async function fetchPokemon(pokemonName) {
+function renderSearchedPokemons(idArray) {
+    let pokemonListRef = document.getElementById("listOfPokemon");
+        let renderCards = "";
+        pokemonListRef.innerHTML = "";
+    for (let index = 0; index < idArray.length; index++) {
+        renderCards += renderSmallPokemonCard(fetchedPokemons[idArray[index] - 1]);
+    }
+    pokemonListRef.innerHTML += renderCards; 
+}
+
+async function fetchPokemonDataByName(pokemonName) {
     let pokemon = (await fetch(BASE_URL + "/pokemon/" + `${pokemonName}`));
     let fetchedPokemon = await pokemon.json();
-    fetchedPokemons += fetchedPokemon
+    fetchedPokemons.push(fetchedPokemon); 
     return fetchedPokemon;
 }
 
@@ -63,3 +80,25 @@ function capitalizeWord(word) {
     return word;
 }
 
+function enableSearchButton() {
+    let searchButtonRef = document.getElementById("searchBtn");
+    let searchInputRef = document.getElementById("searchInput");
+    if (searchInputRef.value.length >= 3){
+        searchButtonRef.disabled = false;
+    }
+    else{
+        searchButtonRef.disabled = true;
+        renderFetchedPokemons(fetchedPokemons, true)
+    }
+}
+
+function searchForPokemons() {
+    let searchInputRef = document.getElementById("searchInput");
+    let foundPokemons = [];
+    for (let index = 0; index < fetchedPokemons.length; index++) {
+        if (fetchedPokemons[index].name.includes(searchInputRef.value.toLowerCase())){
+            foundPokemons.push(fetchedPokemons[index].id);
+        }    
+    }
+    renderSearchedPokemons(foundPokemons);
+}

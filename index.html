@@ -20,8 +20,8 @@
             <h1>Pokedex</h1>
         </div>
         <div class="header-styling-wrapper">
-            <input id="search-input " data-id="search-input" type="text" placeholder="Search here...">
-            <button data-id="search-button">Search</button>
+            <input oninput="enableSearchButton()" id="searchInput" data-id="search-input" type="text" placeholder="Search here...">
+            <button onclick="searchForPokemons()" data-id="search-button" id="searchBtn">Search</button>
         </div>
     </header>
     <main data-id="content">
