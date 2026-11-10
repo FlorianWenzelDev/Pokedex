@@ -16,19 +16,23 @@
 <body onload="init()">
     <header class="site-header">
         <div class="header-styling-wrapper">
-            <img class="site-logo" src="./assets/icons/pokeball_sprite.svg" alt="">
+            <img class="site-logo" src="./assets/icons/pokeball_sprite.svg" alt="black lined pokeball">
             <h1>Pokedex</h1>
         </div>
         <div class="header-styling-wrapper">
-            <input oninput="enableSearchButton()" id="searchInput" data-id="search-input" type="text" placeholder="Search here...">
+            <input oninput="enableSearchButton()" onkeyup="searchWithEnter(event)" id="searchInput" data-id="search-input" type="text" placeholder="Search here...">
             <button onclick="searchForPokemons()" data-id="search-button" id="searchBtn">Search</button>
         </div>
     </header>
-    <main data-id="content">
+    <main data-id="content" id="mainContent">
         <ul id="listOfPokemon" class="list-of-pokemon">
         </ul>
-        <button data-id="load-more-button" onclick="fetchPokemons()">Load more</button>
+        <button data-id="load-more-button" onclick="callLoadingFunctions()">Load more</button>
     </main>
+    <section class="loading-screen" id="loadingScreen">
+        <img src="./assets/icons/pokeball_sprite.svg" alt="black lined pokeball">
+        <p>Loading content...</p>
+    </section>
     <footer class="site-footer">
         <a href="#imprint">Imprint</a>
         <p>c Florian Wenzel</p>

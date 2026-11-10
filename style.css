@@ -100,6 +100,7 @@ button:hover{
 main{
     padding: 24px;
     background-color: #332f2f;
+    min-height: calc(100dvh - 160px);
 }
 
 .list-of-pokemon{
@@ -153,6 +154,21 @@ main{
     object-fit: contain;
 }
 
+.loading-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    height: calc(100dvh - 160px);
+    background-color: #332f2f;
+}
+
+.loading-screen img {
+    width: 150px;
+    animation: loadingAnimation 4s linear infinite forwards;
+}
+
 .site-footer{
     display: flex;
     flex-direction: column;
@@ -161,4 +177,9 @@ main{
     gap: 8px;
     height: 80px;
     background-color: rgba(244, 25, 27, 0.8);
+}
+
+@keyframes loadingAnimation {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
 }

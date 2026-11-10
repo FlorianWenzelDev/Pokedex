@@ -41,6 +41,7 @@
 
 *{
     font-family: "Alumni Sans";
+    font-weight: 500;
 }
 
 .site-header h1{
@@ -49,7 +50,6 @@
 
 .site-header{
     font-size: 1.125rem;
-    font-weight: 500;
 }
 
 h2{ 
@@ -62,10 +62,12 @@ h2{
 
 .pokemon-type{
     font-size: 1.125rem;
-    font-weight: 500;
+}
+
+.loading-screen p{
+ font-size: 2.0rem;
 }
 
 .site-footer{
     font-size: 1.125rem;
-    font-weight: 500;
 }
