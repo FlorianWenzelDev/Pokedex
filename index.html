@@ -20,7 +20,8 @@
             <h1>Pokedex</h1>
         </div>
         <div class="header-styling-wrapper">
-            <input oninput="enableSearchButton()" onkeyup="searchWithEnter(event)" id="searchInput" data-id="search-input" type="text" placeholder="Search here...">
+            <input oninput="enableSearchButton()" onkeyup="searchWithEnter(event)" id="searchInput"
+                data-id="search-input" type="text" placeholder="Search here...">
             <button onclick="searchForPokemons()" data-id="search-button" id="searchBtn">Search</button>
         </div>
     </header>
@@ -28,6 +29,7 @@
         <ul id="listOfPokemon" class="list-of-pokemon">
         </ul>
         <button data-id="load-more-button" onclick="callLoadingFunctions()">Load more</button>
+        <!-- ausblenden bei suchfunktion aktiv -->
     </main>
     <section class="loading-screen" id="loadingScreen">
         <img src="./assets/icons/pokeball_sprite.svg" alt="black lined pokeball">
@@ -37,12 +39,79 @@
         <a href="#imprint">Imprint</a>
         <p>c Florian Wenzel</p>
     </footer>
-    <dialog data-id="dialog">
-        <button data-id="close-dialog-button"></button>
-        <img data-id="dialog-image" src="" alt="">
-        <nav>
-            <button data-id="prev-button"></button>
-            <button data-id="next-button"></button>
+    <dialog data-id="dialog" class="pokemon-dialog" id="pokemonDialog" closedby="any">
+        <button onclick="closeDialog()" data-id="close-dialog-button" class="close-btn">Close</button>
+        <section class="general-pokemon-information">
+            <div class="pokemon-identifier">
+                <h2>Charizard</h2>
+                <p>#ID</p>
+            </div>
+            <div class="pokemon-information-styling-div">
+                <ul class="type-list">
+                    <li class="pokemon-type">Fire</li>
+                    <li class="pokemon-type">Flying</li>
+                </ul>
+                <img data-id="dialog-image" class="dialog-default-pokemon-img"
+                    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/4.png"
+                    alt="">
+            </div>
+        </section>
+        <div class="tablist" role="tablist">
+            <button role="tab">Stats</button>
+            <button role="tab">Shiny</button>
+            <button role="tab">Abilities</button>
+        </div>
+        <section class="further-pokemon-data">
+            <section class="stats-wrapper">
+            <table class="stats">
+                <tr>
+                    <th scope="row">HP:</th>
+                    <td>60</td>
+                </tr>
+                <tr>
+                    <th scope="row">Atk:</th>
+                    <td>60</td>
+                </tr>
+                <tr>
+                    <th scope="row">Def:</th>
+                    <td>60</td>
+                </tr>
+                <tr>
+                    <th scope="row">Sp. Atk:</th>
+                    <td>60</td>
+                </tr>
+                <tr>
+                    <th scope="row">Sp. Def:</th>
+                    <td>60</td>
+                </tr>
+                <tr>
+                    <th scope="row">Spd:</th>
+                    <td>60</td>
+                </tr>
+            </table>
+            </section>
+            <div class="shiny-img-wrapper">
+                <img class="shiny-img"
+                    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/4.png"
+                    alt="">
+            </div>
+            <section class="abilities-wrapper">
+            <dl class="abilities">
+                <dt>Erstes Schlagwort</dt>
+                <dd>Hier steht die ausführliche Erklärung zum ersten Begriff. Sie wird automatisch leicht eingerückt
+                    dargestellt.</dd>
+
+                <dt>Zweites Schlagwort</dt>
+                <dd>Hier folgt die Erklärung zum zweiten Begriff.</dd>
+
+                <dt>Drittes Schlagwort</dt>
+                <dd>Und hier steht die dritte Erklärung.</dd>
+            </dl>
+            </section>
+        </section>
+        <nav class="load-next-pokemon">
+            <button data-id="prev-button">Previous</button>
+            <button data-id="next-button">Next</button>
         </nav>
     </dialog>
 </body>
