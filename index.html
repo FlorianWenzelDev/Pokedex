@@ -44,7 +44,7 @@
         <section class="general-pokemon-information">
             <div class="pokemon-identifier">
                 <h2>Charizard</h2>
-                <p>#ID</p>
+                <p class="pokemon-id">#ID</p>
             </div>
             <div class="pokemon-information-styling-div">
                 <ul class="type-list">
@@ -57,57 +57,59 @@
             </div>
         </section>
         <div class="tablist" role="tablist">
-            <button role="tab">Stats</button>
-            <button role="tab">Shiny</button>
-            <button role="tab">Abilities</button>
+            <button role="tab" data-index="0">Stats</button>
+            <button role="tab" data-index="1">Shiny</button>
+            <button role="tab" data-index="2">Abilities</button>
         </div>
         <section class="further-pokemon-data">
-            <section class="stats-wrapper">
-            <table class="stats">
-                <tr>
-                    <th scope="row">HP:</th>
-                    <td>60</td>
-                </tr>
-                <tr>
-                    <th scope="row">Atk:</th>
-                    <td>60</td>
-                </tr>
-                <tr>
-                    <th scope="row">Def:</th>
-                    <td>60</td>
-                </tr>
-                <tr>
-                    <th scope="row">Sp. Atk:</th>
-                    <td>60</td>
-                </tr>
-                <tr>
-                    <th scope="row">Sp. Def:</th>
-                    <td>60</td>
-                </tr>
-                <tr>
-                    <th scope="row">Spd:</th>
-                    <td>60</td>
-                </tr>
-            </table>
-            </section>
-            <div class="shiny-img-wrapper">
-                <img class="shiny-img"
-                    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/4.png"
-                    alt="">
+            <div class="further-data-wrapper">
+                <section class="stats-wrapper">
+                    <table class="stats">
+                        <tr>
+                            <th scope="row">HP:</th>
+                            <td>60</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Atk:</th>
+                            <td>60</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Def:</th>
+                            <td>60</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Sp. Atk:</th>
+                            <td>60</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Sp. Def:</th>
+                            <td>60</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Spd:</th>
+                            <td>60</td>
+                        </tr>
+                    </table>
+                </section>
+                <div class="shiny-img-wrapper">
+                    <img class="shiny-img"
+                        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/4.png"
+                        alt="">
+                </div>
+                <section class="abilities-wrapper">
+                    <dl class="abilities">
+                        <dt>Run Away:</dt>
+                        <dd>Ensures success fleeing from wild battles.</dd>
+
+                        <dt>Adaptability:</dt>
+                        <dd>Increases the same-type attack bonus from 1.5× to 2×.</dd>
+
+                        <dt>Hidden Anitcipation:</dt>
+                        <dd>Notifies all trainers upon entering battle if an opponent has a super-effective move,
+                            Self-Destruct, Explosion, or a one-hit KO move.</dd>
+                    </dl>
+                </section>
             </div>
-            <section class="abilities-wrapper">
-            <dl class="abilities">
-                <dt>Erstes Schlagwort</dt>
-                <dd>Hier steht die ausführliche Erklärung zum ersten Begriff. Sie wird automatisch leicht eingerückt
-                    dargestellt.</dd>
-
-                <dt>Zweites Schlagwort</dt>
-                <dd>Hier folgt die Erklärung zum zweiten Begriff.</dd>
-
-                <dt>Drittes Schlagwort</dt>
-                <dd>Und hier steht die dritte Erklärung.</dd>
-            </dl>
-            </section>
         </section>
         <nav class="load-next-pokemon">
             <button data-id="prev-button">Previous</button>
