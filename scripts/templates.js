@@ -11,7 +11,7 @@ function getSmallPokemonCard(pokemon, pokemonName ,pokemonTypes){
                     <p>#${pokemon.id}</p>
                     <h2>${pokemonName}</h2>
                     <div class="small-card-styling-wrapper">
-                    <ul id="type-list">
+                    <ul class="type-list">
                         ${pokemonTypes}
                     </ul>
                     <img id="pokemonImg"
