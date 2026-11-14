@@ -57,3 +57,19 @@ h2{
 .loading-screen p{
  font-size: 2.0rem;
 }
+
+.pokemon-id{
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+
+.tablist button{
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.abilities dt{
+ font-size: 1.25rem;
+ font-weight: 600;   
+}
