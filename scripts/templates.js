@@ -7,15 +7,15 @@ function getType(typetext) {
 function getSmallPokemonCard(pokemon, pokemonName ,pokemonTypes, pokemonIndex){
     return `
                 <li>
-                <button onclick="openBigPokemonCard(${pokemonIndex})" class="small-pokemon-card ${pokemon.types[0].type.name}">
+                <button data-id="card" onclick="openBigPokemonCard(${pokemonIndex})" class="small-pokemon-card ${pokemon.types[0].type.name}">
                     <p>#${pokemon.id}</p>
                     <h2>${pokemonName}</h2>
                     <div class="small-card-styling-wrapper">
                     <ul class="type-list">
                         ${pokemonTypes}
                     </ul>
-                    <img id="pokemonImg"
-                        src="${pokemon.sprites.front_default}" alt="">
+                    <img data-id="card-image" id="pokemonImg"
+                        src="${pokemon.sprites.front_default}" alt="${pokemonName}">
                     </div>
                 </button>
             </li>`
@@ -24,7 +24,7 @@ function getSmallPokemonCard(pokemon, pokemonName ,pokemonTypes, pokemonIndex){
 function getLargePokeonCard(pokemon, pokemonName, pokemonTypes, sliderData) {
     return `
             <button onclick="closeDialog()" data-id="close-dialog-button" class="close-btn">Close</button>
-            <section class="general-pokemon-information">
+            <section data-id="overlay-pokemon-name" class="general-pokemon-information">
                 <div class="pokemon-identifier">
                     <h2>${pokemonName}</h2>
                     <p class="pokemon-id">#${pokemon.id}</p>
@@ -106,4 +106,10 @@ function getPokemonAbilitySection(pokemonAbilities) {
 function getPokemonAbility(ability) {
    return `<dt>${fetchedAbilities[ability].name}</dt>
            <dd>${fetchedAbilities[ability].description}</dd>` 
+}
+
+function getNothingFoundScreen() {
+    return `
+        <p data-id="not-found" class="not-found">No matches found</p>
+    `
 }
