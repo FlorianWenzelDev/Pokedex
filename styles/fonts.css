@@ -58,6 +58,11 @@ h2{
  font-size: 2.0rem;
 }
 
+.load-more-button{
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
 .pokemon-id{
   font-size: 1.25rem;
   font-weight: 700;
