@@ -122,7 +122,6 @@ main {
 .small-pokemon-card p {
     padding: 8px 8px 0px 0px;
     text-align: right;
-
 }
 
 .small-card-styling-wrapper {
@@ -187,14 +186,9 @@ main {
 }
 
 .pokemon-dialog {
-    display: flex;
-    flex-direction: column;
     gap: 8px;
-    position: absolute;
-    top: 0px;
-    left: 0px;
     margin: auto;
-    border: unset;
+    border: none;
     border-radius: 32px;
     padding: 24px;
     width: 80%;
@@ -205,8 +199,9 @@ main {
     overscroll-behavior: contain;
 }
 
-.pokemon-dialog:not(:open) {
-    display: none;
+.pokemon-dialog:open{
+    display: flex;
+    flex-direction: column;
 }
 
 .pokemon-dialog::backdrop {
@@ -225,7 +220,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    padding-bottom: 24px;
+    padding-bottom: 16px;
     height: 240px;
 }
 
@@ -260,9 +255,9 @@ main {
     color: #1c1b1b;
 }
 
-.tablist button::before{
+.tablist button::before {
     /* Experimentell */
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -274,7 +269,8 @@ main {
 
 /* Experimentell */
 .tablist button:hover::before, 
-.tablist button:active::before{
+.tablist button:active::before
+/* ,.tablist .active-tab::before */ {
     left: 0;
     width: 100%;
 }
@@ -289,7 +285,7 @@ main {
     scrollbar-gutter: stable;
 }
 
-.further-data-wrapper{
+.further-data-wrapper {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -300,13 +296,29 @@ main {
     height: 100%;
 }
 
-.stats-wrapper, .abilities-wrapper {
+.further-data-wrapper[data-tabvalue="0"] {
+    transform: translateX(calc(0 * calc(-100% / 3)));
+    transition: all 250ms;
+}
+
+.further-data-wrapper[data-tabvalue="1"] {
+    transform: translateX(calc(1 * calc(-100% / 3)));
+    transition: all 250ms;
+}
+
+.further-data-wrapper[data-tabvalue="2"] {
+    transform: translateX(calc(2 * calc(-100% / 3)));
+    transition: all 250ms;
+}
+
+.stats-wrapper,
+.abilities-wrapper {
     display: flex;
     align-items: center;
     width: 100%;
 }
 
-.stats{
+.stats {
     padding-left: 8px;
     height: 200px;
     text-align: left;
@@ -318,7 +330,7 @@ main {
     justify-content: center;
     width: 100%;
     height: 200px;
-} 
+}
 
 .shiny-img {
     height: 100%;
@@ -331,7 +343,7 @@ main {
     overflow-y: scroll;
 }
 
-.load-next-pokemon{
+.load-next-pokemon {
     display: flex;
     justify-content: space-between;
     max-width: 150px;
