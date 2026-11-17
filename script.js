@@ -51,6 +51,20 @@ function renderSearchedPokemons(idArray) {
   showLoadingScreenDuringLoading(false);
 }
 
+function renderNothingFoundScreen() {
+  let pokemonListRef = document.getElementById("listOfPokemon");
+  pokemonListRef.innerHTML = getNothingFoundScreen();
+  showLoadingScreenDuringLoading(false);
+}
+
+function checkSearchResult(idArray) {
+  if (idArray.length > 0) {
+    renderSearchedPokemons(idArray);
+  } else {
+    renderNothingFoundScreen();
+  }
+}
+
 async function fetchPokemonDataByName(pokemonName) {
   let pokemon = await fetch(BASE_URL + "/pokemon/" + `${pokemonName}`);
   let fetchedPokemon = await pokemon.json();
@@ -98,7 +112,8 @@ function searchForPokemons() {
       foundPokemons.push(fetchedPokemons[index].id);
     }
   }
-  renderSearchedPokemons(foundPokemons);
+  checkSearchResult(foundPokemons);
+  // renderSearchedPokemons(foundPokemons);
 }
 
 function searchWithEnter(event) {
@@ -151,7 +166,6 @@ async function renderBigCardTabSections(pokemon) {
   tabSectionHtml += getPokemonAbilitySection(await renderAbilitiesSection(pokemon));
   return tabSectionHtml;
 }
-
 
 function getAbilityNames(pokemon) {
   let pokemonAbilities = pokemon.abilities;
