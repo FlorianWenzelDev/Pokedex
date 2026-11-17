@@ -80,11 +80,11 @@ button:hover {
 
 .site-header {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
     padding: 0px 16px;
-    height: 80px;
+    height: 108px;
     background-color: rgba(244, 25, 27, 0.8);
 }
 
@@ -100,7 +100,7 @@ button:hover {
 main {
     padding: 24px;
     background-color: #332f2f;
-    min-height: calc(100dvh - 160px);
+    min-height: calc(100dvh - 188px);
 }
 
 .list-of-pokemon {
@@ -347,6 +347,12 @@ main {
     display: flex;
     justify-content: space-between;
     max-width: 150px;
+}
+
+.not-found{
+    padding: 24px;
+    text-align: center;
+    color: #ebe1e1;
 }
 
 @keyframes loadingAnimation {

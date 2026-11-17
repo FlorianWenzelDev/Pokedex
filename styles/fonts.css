@@ -73,3 +73,8 @@ h2{
  font-size: 1.25rem;
  font-weight: 600;   
 }
+
+.not-found {
+  font-size: 2rem;
+  font-weight: 600;
+}
