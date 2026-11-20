@@ -232,8 +232,6 @@ async function renderCard(abilityNames, dummy) {
 
 function setActiveTabClass(tabId) {
   let activeTabRef = document.getElementsByClassName("active-tab");
-  console.log(activeTabRef);
-  
   let TabButtonRef = document.getElementById(tabId);
   activeTabRef[0].classList.remove("active-tab");
   TabButtonRef.classList.add('active-tab');
