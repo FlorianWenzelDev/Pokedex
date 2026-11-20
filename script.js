@@ -2,6 +2,8 @@ const BASE_URL = "https://pokeapi.co/api/v2/";
 let loadedPokemonCounter = 0;
 let fetchedPokemons = [];
 let fetchedAbilities = {};
+let currentlyOpenedPokemonIndex = 0;
+let loadedPokemons = [];
 
 function init() {
   showLoadingScreenDuringLoading(true);
@@ -35,6 +37,7 @@ async function renderFetchedPokemons(pokemonNames, fullreload = false) {
   let renderCards = "";
   for (let index = 0; index < pokemonNames.length; index++) {
     renderCards += renderSmallPokemonCard(fetchedPokemons[index + listenLaenge], [index + listenLaenge]);
+    loadedPokemons.push(fetchedPokemons[index + listenLaenge]);
   }
   pokemonListRef.innerHTML += renderCards;
   showLoadingScreenDuringLoading(false);
@@ -42,10 +45,12 @@ async function renderFetchedPokemons(pokemonNames, fullreload = false) {
 
 function renderSearchedPokemons(idArray) {
   let pokemonListRef = document.getElementById("listOfPokemon");
+  loadedPokemons = [];
   let renderCards = "";
   pokemonListRef.innerHTML = "";
   for (let index = 0; index < idArray.length; index++) {
-    renderCards += renderSmallPokemonCard(fetchedPokemons[idArray[index] - 1]);
+    renderCards += renderSmallPokemonCard(fetchedPokemons[idArray[index] - 1], index);
+    loadedPokemons.push(fetchedPokemons[idArray[index] - 1]);
   }
   pokemonListRef.innerHTML += renderCards;
   showLoadingScreenDuringLoading(false);
@@ -99,6 +104,7 @@ function enableSearchButton() {
     searchButtonRef.disabled = false;
   } else {
     searchButtonRef.disabled = true;
+    loadedPokemons = [];
     renderFetchedPokemons(fetchedPokemons, true);
     changeVisibilityOfElement("loadMoreButton", true);
   }
@@ -147,13 +153,14 @@ function callLoadingFunctions() {
 }
 
 async function openBigPokemonCard(pokemonIndex) {
-  document.getElementById("pokemonDialog").showModal();
-  let pokemonTypes = renderPokemonTypes(fetchedPokemons[pokemonIndex]);
-  let pokemonName = capitalizeWord(fetchedPokemons[pokemonIndex].name);
-  let sliderData = await renderBigCardTabSections(fetchedPokemons[pokemonIndex]);
+  currentlyOpenedPokemonIndex = pokemonIndex;
+  let pokemonTypes = renderPokemonTypes(loadedPokemons[pokemonIndex]);
+  let pokemonName = capitalizeWord(loadedPokemons[pokemonIndex].name);
+  let sliderData = await renderBigCardTabSections(loadedPokemons[pokemonIndex]);
   let dialogRef = document.getElementById("pokemonDialog");
+  document.getElementById("pokemonDialog").showModal();
   dialogRef.innerHTML = "";
-  dialogRef.innerHTML = getLargePokeonCard(fetchedPokemons[pokemonIndex], pokemonName, pokemonTypes, sliderData);
+  dialogRef.innerHTML = getLargePokeonCard(loadedPokemons[pokemonIndex], pokemonName, pokemonTypes, sliderData);
 }
 
 function closeDialog() {
@@ -242,4 +249,20 @@ function setActiveTabClass(tabId) {
   let TabButtonRef = document.getElementById(tabId);
   activeTabRef[0].classList.remove("active-tab");
   TabButtonRef.classList.add('active-tab');
+}
+
+function loadNextBigPokemonCard(countDirection) {
+  let indexOfPokemonToLoad = checkEdgeCases(countDirection);
+  openBigPokemonCard(indexOfPokemonToLoad);
+}
+
+function checkEdgeCases(countDirection) {
+  currentlyOpenedPokemonIndex += countDirection;
+  if (currentlyOpenedPokemonIndex < 0){
+    currentlyOpenedPokemonIndex = loadedPokemons.length - 1;
+  }
+  else if (currentlyOpenedPokemonIndex >= loadedPokemons.length){
+    currentlyOpenedPokemonIndex = 0;
+  }
+  return currentlyOpenedPokemonIndex;
 }

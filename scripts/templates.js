@@ -3,7 +3,6 @@ function getType(typetext) {
     return `<li class="pokemon-type">${typetext}</li>`
 }
 
-
 function getSmallPokemonCard(pokemon, pokemonName ,pokemonTypes, pokemonIndex){
     return `
                 <li>
@@ -49,15 +48,13 @@ function getLargePokeonCard(pokemon, pokemonName, pokemonTypes, sliderData) {
             </section>
             <nav class="load-next-pokemon">
                 <div class="next-pokemon-button-wrapper">
-                <button data-id="prev-button" class="nav-button"><img src="./assets/icons/arrow_left .svg" alt="Arrow pointing to the left site"></button>
-                <button data-id="next-button" class="nav-button"><img src="./assets/icons/arrow_right.svg" alt="Arrow pointing to the right site"></button>
+                <button data-id="prev-button" class="nav-button" onclick="loadNextBigPokemonCard(-1)"><img src="./assets/icons/arrow_left .svg" alt="Arrow pointing to the left site"></button>
+                <button data-id="next-button" class="nav-button" onclick="loadNextBigPokemonCard(+1)"><img src="./assets/icons/arrow_right.svg" alt="Arrow pointing to the right site"></button>
                 </div>
             </nav>
             </div>
     `
 }
-
-
 
 function getPokemonStatsSection(pokemon) {
     return `<section class="stats-wrapper">
