@@ -70,14 +70,6 @@
     background-color: rgba(61, 154, 244, 1);
 }
 
-/* button {
-    transform: scale(1);
-}
-
-button:hover {
-    transform: scale(1.1);
-} */
-
 .site-header {
     display: flex;
     flex-direction: column;
@@ -95,6 +87,21 @@ button:hover {
 
 .site-logo {
     width: 32px;
+}
+
+.search-btn{
+    border: none;
+    border-radius: 15px;
+    color: #332f2f;
+    background-color: #ebe1e1;
+    opacity: 1;
+}
+
+.search-btn:disabled{
+    border: none;
+    color: #332f2f;
+    background-color: #ebe1e1;
+    opacity: 0.8;
 }
 
 main {
@@ -125,7 +132,9 @@ main {
     transition: all 250ms linear;
 }
 
-.small-pokemon-card:hover, .small-pokemon-card:active, .small-pokemon-card:focus {
+.small-pokemon-card:hover,
+.small-pokemon-card:active,
+.small-pokemon-card:focus {
     transform: scale(1.1);
     transition: all 250ms linear;
 }
@@ -168,7 +177,9 @@ main {
     filter: drop-shadow(0px 0px 0px #000);
 }
 
-.small-pokemon-card:hover img, .small-pokemon-card:active img, .small-pokemon-card:focus img  {
+.small-pokemon-card:hover img,
+.small-pokemon-card:active img,
+.small-pokemon-card:focus img {
     filter: drop-shadow(5px 5px 2px #000);
 }
 
@@ -187,7 +198,7 @@ main {
     animation: loadingAnimation 4s linear infinite forwards;
 }
 
-.load-more-button{
+.load-more-button {
     width: 120px;
     border: none;
     border-radius: 19px;
@@ -201,7 +212,22 @@ main {
     align-items: center;
     gap: 8px;
     height: 80px;
+    color: #1c1b1b;
     background-color: rgba(244, 25, 27, 0.8);
+}
+
+.site-footer a{
+    color: #1c1b1b;
+    text-decoration: none;
+}
+
+.copyright {
+    display: flex;
+    gap: 4px;
+}
+
+.copyright img{
+    height: 24px;
 }
 
 .pokemon-dialog {
@@ -214,11 +240,11 @@ main {
     max-width: 450px;
     height: 560px;
     color: #1c1b1b;
-    
+
     overscroll-behavior: contain;
 }
 
-.pokemon-dialog:open{
+.pokemon-dialog:open {
     display: flex;
     flex-direction: column;
 }
@@ -255,7 +281,6 @@ main {
     padding: 24px;
 }
 
-
 .pokemon-information-styling-div {
     display: flex;
     justify-content: space-between;
@@ -265,18 +290,18 @@ main {
 .dialog-default-pokemon-img {
     width: 128px;
     height: 128px;
-    filter: drop-shadow(0px 0px 0px #000000);
+    /* filter: drop-shadow(0px 0px 0px #000000); */
 }
 
-.dialog-default-pokemon-img:hover {
+/* .dialog-default-pokemon-img:hover {
     filter: drop-shadow(5px 5px 4px #000000);
-}
+} */
 
 .tablist {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    max-width: 300px;
+    width: 100%;
 }
 
 .tablist button {
@@ -392,44 +417,46 @@ main {
     border-radius: 16px;
 }
 
-.nav-button img{
+.nav-button img {
     width: 24px;
     height: 24px;
 }
 
-.not-found{
+.not-found {
     padding: 24px;
     text-align: center;
     color: #ebe1e1;
 }
 
-
-body, .abilities {
-  --sb-track-color: #f0f0f0;
-  --sb-thumb-color: #1c1b1b;
-  --sb-size: 8px;
+body,
+.abilities {
+    --sb-track-color: #f0f0f0;
+    --sb-thumb-color: #1c1b1b;
+    --sb-size: 8px;
 }
 
-body::-webkit-scrollbar, .abilities::-webkit-scrollbar {
-  width: var(--sb-size)
+body::-webkit-scrollbar,
+.abilities::-webkit-scrollbar {
+    width: var(--sb-size);
 }
 
-body::-webkit-scrollbar-track, .abilities::-webkit-scrollbar-track {
-  background: var(--sb-track-color);
-  border-radius: 4px;
+body::-webkit-scrollbar-track,
+.abilities::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 4px;
 }
 
-body::-webkit-scrollbar-thumb, .abilities::-webkit-scrollbar-thumb {
-  background: var(--sb-thumb-color);
-  border-radius: 4px;
-  
+body::-webkit-scrollbar-thumb,
+.abilities::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 4px;
 }
 
 @supports not selector(::-webkit-scrollbar) {
-  body, .abilities {
-    scrollbar-color: var(--sb-thumb-color)
-                     var(--sb-track-color);
-  }
+    body,
+    .abilities {
+        scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+    }
 }
 
 @keyframes loadingAnimation {
@@ -439,5 +466,38 @@ body::-webkit-scrollbar-thumb, .abilities::-webkit-scrollbar-thumb {
 
     100% {
         transform: rotate(360deg);
+    }
+}
+
+@media screen and (min-width: 560px) {
+    .site-header {
+        flex-direction: row;
+        justify-content: space-between;
+        height: 80px;
+    }
+    main {
+        padding: 24px 56px;
+        min-height: calc(100dvh - 160px);
+    }
+
+    .site-footer{
+        flex-direction: row-reverse;
+        gap: 48px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .site-header {
+        padding: 0px 48px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .site-header {
+        padding: 0px calc(48px + calc(50% - 720px));
+    }
+
+    main {
+        padding: 24px calc(56px + calc(50% - 720px));
     }
 }

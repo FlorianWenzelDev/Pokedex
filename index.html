@@ -22,14 +22,13 @@
         <div class="header-styling-wrapper">
             <input oninput="enableSearchButton()" onkeyup="searchWithEnter(event)" id="searchInput"
                 data-id="search-input" type="text" placeholder="Search here...">
-            <button onclick="searchForPokemons()" data-id="search-button" id="searchBtn">Search</button>
+            <button onclick="searchForPokemons()" data-id="search-button" id="searchBtn" class="search-btn">Search</button>
         </div>
     </header>
     <main data-id="content" id="mainContent">
         <ul id="listOfPokemon" class="list-of-pokemon">
         </ul>
         <button data-id="load-more-button" class="load-more-button" id="loadMoreButton" onclick="callLoadingFunctions()">Load more</button>
-        <!-- ausblenden bei suchfunktion aktiv -->
     </main>
     <section class="loading-screen" id="loadingScreen">
         <img src="./assets/icons/pokeball_sprite.svg" alt="black lined pokeball">
@@ -37,7 +36,10 @@
     </section>
     <footer class="site-footer">
         <a href="#imprint">Imprint</a>
-        <p>c Florian Wenzel</p>
+        <div class="copyright">
+            <img src="./assets/icons/copyright.svg" alt="copyrighticon">
+            <p>Florian Wenzel</p>
+        </div>
     </footer>
     <dialog data-id="dialog" class="pokemon-dialog" id="pokemonDialog" closedby="any">
     </dialog>   
