@@ -331,7 +331,7 @@ main {
     position: relative;
     width: 100%;
     min-height: 200px;
-    overflow: hidden;
+    overflow: clip;
     background-color: #ebe1e1;
     border-radius: 16px;
     scrollbar-gutter: stable;
