@@ -139,9 +139,11 @@ function showLoadingScreenDuringLoading(loadingActive) {
   let mainContentRef = document.getElementById("mainContent");
   let loadingScreenRef = document.getElementById("loadingScreen");
   if (loadingActive) {
+    changeVisibilityOfElement("loadMoreButton", false);
     mainContentRef.hidden = true;
     loadingScreenRef.hidden = false;
   } else {
+    changeVisibilityOfElement("loadMoreButton", true);
     mainContentRef.hidden = false;
     loadingScreenRef.hidden = true;
   }

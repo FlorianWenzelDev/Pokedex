@@ -6,7 +6,8 @@ function getType(typetext) {
 function getSmallPokemonCard(pokemon, pokemonName ,pokemonTypes, pokemonIndex){
     return `
                 <li>
-                <button data-id="card" onclick="openBigPokemonCard(${pokemonIndex})" class="small-pokemon-card ${pokemon.types[0].type.name}">
+                <button data-id="card" onclick="openBigPokemonCard(${pokemonIndex})" class="small-pokemon-card ${pokemon.types[0].type.name}" 
+                aria-haspopup="dialog" aria-controls="pokemon-dialog" aria-label="open detailed pokemonview">
                     <p>#${pokemon.id}</p>
                     <h2>${pokemonName}</h2>
                     <div class="small-card-styling-wrapper">
@@ -14,7 +15,7 @@ function getSmallPokemonCard(pokemon, pokemonName ,pokemonTypes, pokemonIndex){
                         ${pokemonTypes}
                     </ul>
                     <img data-id="card-image" id="pokemonImg"
-                        src="${pokemon.sprites.front_default}" alt="${pokemonName}">
+                        src="${pokemon.sprites.front_default}" alt="pixelart image of the pokemon ${pokemonName}" aria-label="pixelart image of the pokemon ${pokemonName}">
                     </div>
                 </button>
             </li>`
@@ -22,7 +23,8 @@ function getSmallPokemonCard(pokemon, pokemonName ,pokemonTypes, pokemonIndex){
 
 function getLargePokeonCard(pokemon, pokemonName, pokemonTypes, sliderData) {
     return `
-            <button onclick="closeDialog()" data-id="close-dialog-button" class="close-btn"><img src="./assets/icons/close.svg" alt="X Icon to close the dialog"></button>
+            <button onclick="closeDialog()" data-id="close-dialog-button" class="close-btn"  aria-label="close detailed Pokemon View">
+            <img src="./assets/icons/close.svg" alt="X Icon to close the dialog"></button>
             <div data-id="overlay-pokemon-name" class="general-pokemon-information ${pokemon.types[0].type.name}">
                 <div class="pokemon-identifier">
                     <h2>${pokemonName}</h2>
@@ -32,14 +34,14 @@ function getLargePokeonCard(pokemon, pokemonName, pokemonTypes, sliderData) {
                     <ul class="type-list">
                         ${pokemonTypes}
                     </ul>
-                    <img data-id="dialog-image" class="dialog-default-pokemon-img"
+                    <img data-id="dialog-image" class="dialog-default-pokemon-img" aria-label="Image of the pokemon ${pokemonName}"
                         src="${pokemon.sprites.other.home.front_default}"
-                        alt="${pokemonName}">
+                        alt="Image of the pokemon ${pokemonName}">
                 </div>
-                <div class="tablist" role="tablist">
-                    <button role="tab" onclick="changeTabOnBigPokemonCard(0, 'statsTab')" class="active-tab" id="statsTab">Stats</button>
-                    <button role="tab" onclick="changeTabOnBigPokemonCard(1, 'shinyTab')" id="shinyTab">Shiny</button>
-                    <button role="tab" onclick="changeTabOnBigPokemonCard(2, 'abilitiesTab')" id="abilitiesTab">Abilities</button>
+                <div class="tablist" role="tablist" aria-label="Additional pokemon Informations">
+                    <button role="tab" onclick="changeTabOnBigPokemonCard(0, 'statsTab')" class="active-tab" id="statsTab" aria-controls="furtherDataSlider">Stats</button>
+                    <button role="tab" onclick="changeTabOnBigPokemonCard(1, 'shinyTab')" id="shinyTab" aria-controls="furtherDataSlider">Shiny</button>
+                    <button role="tab" onclick="changeTabOnBigPokemonCard(2, 'abilitiesTab')" id="abilitiesTab" aria-controls="furtherDataSlider">Abilities</button>
                 </div>
                 <section class="further-pokemon-data">
                 <div role="tabpanel" class="further-data-wrapper" id="furtherDataSlider" data-tabvalue="0">
@@ -48,8 +50,8 @@ function getLargePokeonCard(pokemon, pokemonName, pokemonTypes, sliderData) {
             </section>
             <nav class="load-next-pokemon">
                 <div class="next-pokemon-button-wrapper">
-                <button data-id="prev-button" class="nav-button" onclick="loadNextBigPokemonCard(-1)"><img src="./assets/icons/arrow_left .svg" alt="Arrow pointing to the left site"></button>
-                <button data-id="next-button" class="nav-button" onclick="loadNextBigPokemonCard(+1)"><img src="./assets/icons/arrow_right.svg" alt="Arrow pointing to the right site"></button>
+                <button aria-label="show previous pokemon" data-id="prev-button" class="nav-button" onclick="loadNextBigPokemonCard(-1)"><img src="./assets/icons/arrow_left .svg" alt="Arrow pointing to the left site"></button>
+                <button aria-label="show next pokemon" data-id="next-button" class="nav-button" onclick="loadNextBigPokemonCard(+1)"><img src="./assets/icons/arrow_right.svg" alt="Arrow pointing to the right site"></button>
                 </div>
             </nav>
             </div>
@@ -112,6 +114,6 @@ function getPokemonAbility(ability) {
 
 function getNothingFoundScreen() {
     return `
-        <p data-id="not-found" class="not-found">No matches found</p>
+        <p data-id="not-found" class="not-found">No match found.</p>
     `
 }
