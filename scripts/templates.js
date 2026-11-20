@@ -23,8 +23,8 @@ function getSmallPokemonCard(pokemon, pokemonName ,pokemonTypes, pokemonIndex){
 
 function getLargePokeonCard(pokemon, pokemonName, pokemonTypes, sliderData) {
     return `
-            <button onclick="closeDialog()" data-id="close-dialog-button" class="close-btn">Close</button>
-            <section data-id="overlay-pokemon-name" class="general-pokemon-information">
+            <button onclick="closeDialog()" data-id="close-dialog-button" class="close-btn"><img src="./assets/icons/close.svg" alt="X Icon to close the dialog"></button>
+            <div data-id="overlay-pokemon-name" class="general-pokemon-information ${pokemon.types[0].type.name}">
                 <div class="pokemon-identifier">
                     <h2>${pokemonName}</h2>
                     <p class="pokemon-id">#${pokemon.id}</p>
@@ -48,11 +48,16 @@ function getLargePokeonCard(pokemon, pokemonName, pokemonTypes, sliderData) {
                 </div>
             </section>
             <nav class="load-next-pokemon">
-                <button data-id="prev-button">Previous</button>
-                <button data-id="next-button">Next</button>
+                <div class="next-pokemon-button-wrapper">
+                <button data-id="prev-button" class="nav-button"><img src="./assets/icons/arrow_left .svg" alt="Arrow pointing to the left site"></button>
+                <button data-id="next-button" class="nav-button"><img src="./assets/icons/arrow_right.svg" alt="Arrow pointing to the right site"></button>
+                </div>
             </nav>
+            </div>
     `
 }
+
+
 
 function getPokemonStatsSection(pokemon) {
     return `<section class="stats-wrapper">
@@ -90,7 +95,7 @@ function getShinyPokemonSection(pokemon) {
     return `<div class="shiny-img-wrapper">
                 <img class="shiny-img"
                     src="${pokemon.sprites.other.home.front_shiny}"
-                    alt="">
+                    alt="Shiny version of the pokemon ${pokemon.name}">
             </div>
     `
 }
