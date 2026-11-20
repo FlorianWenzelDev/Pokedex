@@ -189,6 +189,7 @@ main {
 
 .load-more-button{
     width: 120px;
+    border: none;
     border-radius: 19px;
     background-color: #ebe1e1;
 }

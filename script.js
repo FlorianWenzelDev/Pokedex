@@ -100,6 +100,7 @@ function enableSearchButton() {
   } else {
     searchButtonRef.disabled = true;
     renderFetchedPokemons(fetchedPokemons, true);
+    changeVisibilityOfElement("loadMoreButton", true);
   }
 }
 
@@ -107,6 +108,7 @@ function searchForPokemons() {
   let searchInputRef = document.getElementById("searchInput");
   let foundPokemons = [];
   showLoadingScreenDuringLoading(true);
+  changeVisibilityOfElement("loadMoreButton", false);
   for (let index = 0; index < fetchedPokemons.length; index++) {
     if (fetchedPokemons[index].name.includes(searchInputRef.value.toLowerCase())) {
       foundPokemons.push(fetchedPokemons[index].id);
@@ -120,6 +122,11 @@ function searchWithEnter(event) {
   if (event.key === "Enter" && searchInputRef.value.length >= 3) {
     searchForPokemons();
   }
+}
+
+function changeVisibilityOfElement(elementId, visible) {
+  let elementRef = document.getElementById(elementId);
+  (visible) ? elementRef.hidden = false : elementRef.hidden = true;
 }
 
 function showLoadingScreenDuringLoading(loadingActive) {
