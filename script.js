@@ -113,7 +113,6 @@ function searchForPokemons() {
     }
   }
   checkSearchResult(foundPokemons);
-  // renderSearchedPokemons(foundPokemons);
 }
 
 function searchWithEnter(event) {
@@ -154,9 +153,10 @@ function closeDialog() {
   document.getElementById("pokemonDialog").close();
 }
 
-function changeTabOnBigPokemonCard(tabposition) {
+function changeTabOnBigPokemonCard(tabposition, tabId) {
   let sliderRef = document.getElementById("furtherDataSlider");
   sliderRef.dataset.tabvalue = tabposition;
+  setActiveTabClass(tabId);
 }
 
 async function renderBigCardTabSections(pokemon) {
@@ -228,4 +228,13 @@ async function renderCard(abilityNames, dummy) {
     abilitiesRef += getPokemonAbility(abilityNames[index]);
   }
   return abilitiesRef;
+}
+
+function setActiveTabClass(tabId) {
+  let activeTabRef = document.getElementsByClassName("active-tab");
+  console.log(activeTabRef);
+  
+  let TabButtonRef = document.getElementById(tabId);
+  activeTabRef[0].classList.remove("active-tab");
+  TabButtonRef.classList.add('active-tab');
 }

@@ -38,12 +38,12 @@ function getLargePokeonCard(pokemon, pokemonName, pokemonTypes, sliderData) {
                         alt="${pokemonName}">
                 </div>
                 <div class="tablist" role="tablist">
-                    <button role="tab" onclick="changeTabOnBigPokemonCard(0)" class="active-tab">Stats</button>
-                    <button role="tab" onclick="changeTabOnBigPokemonCard(1)">Shiny</button>
-                    <button role="tab" onclick="changeTabOnBigPokemonCard(2)">Abilities</button>
+                    <button role="tab" onclick="changeTabOnBigPokemonCard(0, 'statsTab')" class="active-tab" id="statsTab">Stats</button>
+                    <button role="tab" onclick="changeTabOnBigPokemonCard(1, 'shinyTab')" id="shinyTab">Shiny</button>
+                    <button role="tab" onclick="changeTabOnBigPokemonCard(2, 'abilitiesTab')" id="abilitiesTab">Abilities</button>
                 </div>
                 <section class="further-pokemon-data">
-                <div class="further-data-wrapper" id="furtherDataSlider" data-tabvalue="0">
+                <div role="tabpanel" class="further-data-wrapper" id="furtherDataSlider" data-tabvalue="0">
                     ${sliderData}
                 </div>
             </section>

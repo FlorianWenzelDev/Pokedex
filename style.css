@@ -281,13 +281,11 @@ main {
 .tablist button {
     border: unset;
     background-color: transparent;
-    /* Experimentiell */
     position: relative;
     color: #1c1b1b;
 }
 
 .tablist button::before {
-    /* Experimentell */
     content: "";
     position: absolute;
     bottom: 0;
@@ -298,10 +296,7 @@ main {
     transition: all 0.3s;
 }
 
-/* Experimentell */
-.tablist button:hover::before, 
-.tablist button:active::before
-/* ,.tablist .active-tab::before */ {
+.tablist .active-tab::before {
     left: 0;
     width: 100%;
 }
