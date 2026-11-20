@@ -428,6 +428,10 @@ main {
     color: #ebe1e1;
 }
 
+.impressum-main{
+    background-color: #ebe1e1;
+}
+
 body,
 .abilities {
     --sb-track-color: #f0f0f0;
