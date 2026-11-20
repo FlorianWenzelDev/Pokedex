@@ -403,6 +403,35 @@ main {
     color: #ebe1e1;
 }
 
+
+body, .abilities {
+  --sb-track-color: #f0f0f0;
+  --sb-thumb-color: #1c1b1b;
+  --sb-size: 8px;
+}
+
+body::-webkit-scrollbar, .abilities::-webkit-scrollbar {
+  width: var(--sb-size)
+}
+
+body::-webkit-scrollbar-track, .abilities::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 4px;
+}
+
+body::-webkit-scrollbar-thumb, .abilities::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 4px;
+  
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body, .abilities {
+    scrollbar-color: var(--sb-thumb-color)
+                     var(--sb-track-color);
+  }
+}
+
 @keyframes loadingAnimation {
     0% {
         transform: rotate(0deg);
